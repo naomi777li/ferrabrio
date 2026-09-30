@@ -4,8 +4,8 @@
   "updatedAt": "2026-09-30",
   "operatingPrinciple": "No page, article, CTA, internal link or optimization is published unless it maps to a segment, intent, keyword cluster, conversion event and review rule in this model.",
   "dataState": {
-    "gsc": "awaiting_property_connection",
-    "ga4": "awaiting_measurement_id",
+    "gsc": "domain property verified; sitemap submitted",
+    "ga4": "G-Q5M5LW282F installed; awaiting initial visitor data",
     "cadence": "Weekly signal review; monthly cluster and conversion review; quarterly positioning review."
   },
   "marketPriorities": [
