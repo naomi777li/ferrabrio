@@ -46,6 +46,7 @@
     {"name":"article_to_rfq","meaning":"Visitor follows an article CTA to the RFQ section.","success":"Measures content-assisted commercial intent."},
     {"name":"outbound_contact","meaning":"Visitor uses a verified future email, phone or WhatsApp contact action.","success":"Primary conversion once contact details are connected."}
   ],
+  "measurement": {"ga4MeasurementId":"G-Q5M5LW282F","searchConsoleProperty":"sc-domain:ferrabrio.com","cadence":"Weekly review; use qualified RFQ signals, landing-page intent and search-query groups before publishing or changing a page."},
   "signalRules": [
     {"if":"GSC query has 100+ impressions / 28 days, average position 8–20 and CTR below 2.5%","then":"Rewrite title and meta to match the query’s commercial or problem-solving intent; add a concise answer and internal link from the closest page.","owner":"SEO"},
     {"if":"A commercial page has engaged sessions but no generate_rfq event","then":"Audit proof, technical inputs, contact friction and CTA placement before adding more traffic.","owner":"CRO"},
