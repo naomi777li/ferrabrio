@@ -1,0 +1,57 @@
+{
+  "modelVersion": "1.0.0",
+  "brand": "FERRABRIO",
+  "updatedAt": "2026-09-30",
+  "operatingPrinciple": "No page, article, CTA, internal link or optimization is published unless it maps to a segment, intent, keyword cluster, conversion event and review rule in this model.",
+  "dataState": {
+    "gsc": "awaiting_property_connection",
+    "ga4": "awaiting_measurement_id",
+    "cadence": "Weekly signal review; monthly cluster and conversion review; quarterly positioning review."
+  },
+  "marketPriorities": [
+    {"market":"United States & Canada","why":"High search demand for industrial wire brushes, power-tool accessories and MRO supply; buyers expect clear fitment and fast technical response.","proofNeeded":"Imperial and metric mounting options, machine compatibility, response SLA."},
+    {"market":"Germany, UK, France & Nordics","why":"Engineering-led sourcing and emphasis on material traceability, documentation and application-specific capability.","proofNeeded":"Material statements, drawing control, inspection plan, destination-specific compliance review."},
+    {"market":"GCC & broader Middle East","why":"Maintenance, fabrication and infrastructure supply routes reward export-ready packing and dependable distributor support.","proofNeeded":"Corrosion-aware material options, carton / pallet configuration, distributor enquiry path."}
+  ],
+  "personas": [
+    {"id":"oem-engineer","name":"OEM / process engineer","job":"Specify or validate a brush for a production machine or finished equipment.","painPoints":["A catalog size does not prove fit or safe performance.","Existing brush wears unevenly or leaves inconsistent finish.","Needs a supplier who can read drawings and communicate technical trade-offs."],"decisionCriteria":["Filament and geometry knowledge","Arbor / hub fitment","Sample validation","Version-controlled specification"],"primaryIntent":"commercial-investigation","conversion":"Technical RFQ with workpiece, RPM and drawing or photo"},
+    {"id":"distributor","name":"Industrial distributor / importer","job":"Add a reliable brush range or source a private-label / custom line.","painPoints":["Needs a legible range without commodity-only positioning.","Requires repeatable packing, labels and reorder consistency.","Needs supplier support before making customer promises."],"decisionCriteria":["Range depth","OEM / private-label readiness","Export documentation","Reliable replenishment"],"primaryIntent":"commercial","conversion":"Range / private-label enquiry"},
+    {"id":"mro-buyer","name":"MRO, fabrication or maintenance buyer","job":"Solve a cleaning, rust removal, deburring or process-maintenance problem.","painPoints":["Current tool damages the surface or is too slow.","Unsure whether to use wire, abrasive nylon or a custom profile.","Needs a practical answer before ordering."],"decisionCriteria":["Application match","Availability / MOQ","Clear safe-use guidance","Total lifecycle value"],"primaryIntent":"problem-solution","conversion":"Application-led quote request"}
+  ],
+  "valueProposition": {
+    "core":"Industrial brush configurations engineered around the workpiece, machine and required finish.",
+    "proofPillars":["Product-family clarity with reference geometry","Material, trim, density and hub customization","Sample-to-specification validation workflow","Export-ready packing and documentation planning"],
+    "claimsGuardrail":"Do not publish unverified certifications, production capacity, lead time, safety rating or market-specific compliance claims."
+  },
+  "intentPages": [
+    {"url":"/","intent":"commercial-investigation","coreTerms":["industrial wire brush manufacturer","custom industrial brushes","wire wheel brush supplier"],"supportingTerms":["OEM wire brushes","wheel brush manufacturer","industrial brush factory China"],"personaIds":["oem-engineer","distributor","mro-buyer"],"cta":"Technical RFQ","primaryEvent":"generate_rfq"},
+    {"url":"/#products","intent":"category","coreTerms":["wire wheel brush","cup wire brush","abrasive nylon brush","bonded brush"],"supportingTerms":["twist knot wheel brush","custom wheel brush","industrial brush types"],"personaIds":["oem-engineer","mro-buyer"],"cta":"Explore brush family","primaryEvent":"view_product_family"},
+    {"url":"/#custom","intent":"high-commercial","coreTerms":["custom wire brush manufacturer","OEM industrial brushes","custom wheel brush"],"supportingTerms":["brush drawing manufacturer","custom brush filament","industrial brush OEM China"],"personaIds":["oem-engineer","distributor"],"cta":"Send technical requirements","primaryEvent":"generate_rfq"},
+    {"url":"/#applications","intent":"problem-solution","coreTerms":["wire brush for rust removal","wire brush for weld spatter","industrial deburring brush"],"supportingTerms":["pipe cleaning brush","metal fabrication brush","maintenance wire brush"],"personaIds":["mro-buyer","oem-engineer"],"cta":"Match an application","primaryEvent":"generate_rfq"},
+    {"url":"/journal/how-to-specify-a-wire-wheel-brush.html","intent":"informational-to-commercial","coreTerms":["how to choose wire wheel brush","wire wheel brush specification","wire brush RPM selection"],"supportingTerms":["crimped versus twist knot wheel","wire brush arbor size"],"personaIds":["oem-engineer","mro-buyer"],"cta":"Prepare an RFQ","primaryEvent":"article_to_rfq"},
+    {"url":"/journal/abrasive-nylon-vs-wire-brush.html","intent":"comparison-to-commercial","coreTerms":["abrasive nylon brush vs wire brush","abrasive nylon deburring brush","wire brush surface preparation"],"supportingTerms":["non woven versus wire brush","brush for stainless steel"],"personaIds":["oem-engineer","mro-buyer"],"cta":"Share your application","primaryEvent":"article_to_rfq"}
+  ],
+  "contentEngine": {
+    "rules":["Every article must target one named persona and one primary search intent.","Every article must link to exactly one best-fit commercial section and name the next decision the reader should make.","Use application photos, machine constraints and material trade-offs; avoid generic supplier promotion.","Refresh articles when GSC exposes impressions with weak CTR, high-conversion query patterns or new question phrases."],
+    "nextTopics":[
+      {"topic":"Twist knot vs crimped wire wheel: when to use each","intent":"comparison","destination":"/#products","persona":"mro-buyer","priority":"high"},
+      {"topic":"How to specify a custom roller brush for tube and pipe processing","intent":"solution","destination":"/#custom","persona":"oem-engineer","priority":"high"},
+      {"topic":"Private-label industrial brushes: a distributor readiness checklist","intent":"commercial","destination":"/#custom","persona":"distributor","priority":"medium"},
+      {"topic":"Preventing ferrous contamination when brushing stainless steel","intent":"technical","destination":"/#applications","persona":"oem-engineer","priority":"medium"}
+    ]
+  },
+  "events": [
+    {"name":"view_product_family","meaning":"Visitor reaches a product-family card or product section.","success":"Signals category relevance; compare by family and market."},
+    {"name":"generate_rfq","meaning":"Visitor submits the RFQ form and opens the prepared inquiry email.","success":"Primary micro-conversion; tag by selected brush family and landing page."},
+    {"name":"article_to_rfq","meaning":"Visitor follows an article CTA to the RFQ section.","success":"Measures content-assisted commercial intent."},
+    {"name":"outbound_contact","meaning":"Visitor uses a verified future email, phone or WhatsApp contact action.","success":"Primary conversion once contact details are connected."}
+  ],
+  "signalRules": [
+    {"if":"GSC query has 100+ impressions / 28 days, average position 8–20 and CTR below 2.5%","then":"Rewrite title and meta to match the query’s commercial or problem-solving intent; add a concise answer and internal link from the closest page.","owner":"SEO"},
+    {"if":"A commercial page has engaged sessions but no generate_rfq event","then":"Audit proof, technical inputs, contact friction and CTA placement before adding more traffic.","owner":"CRO"},
+    {"if":"An article sends visitors to RFQ but article_to_rfq rate is below 1% after 150 engaged views","then":"Improve the application checklist, add a decision table and tighten the commercial next step.","owner":"Content"},
+    {"if":"A query converts through an RFQ or qualified lead","then":"Promote it to a primary term on its mapped intent page; create one supporting application page only if it has distinct buyer need.","owner":"Growth"},
+    {"if":"A page earns non-brand impressions but has no entity / evidence clarity","then":"Add accountable product detail, sourceable material / process information, precise headings and structured data appropriate to the page.","owner":"GEO"}
+  ],
+  "publicationGate": ["Named persona", "Mapped intent page", "Primary keyword and natural variants", "Evidence / claims review", "Internal commercial link", "CTA and event mapping", "GSC / GA4 measurement plan"]
+}
