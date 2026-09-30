@@ -452,8 +452,8 @@
             <p class="eyebrow" style="color: #c9e86f">Request for quotation</p>
             <h2>Tell us what the surface needs.</h2>
             <p>
-              Submit a concise technical brief. The form prepares an email in
-              your mail client so you can retain the full inquiry record.
+              Submit a concise technical brief without leaving this page. Your
+              inquiry is sent directly to our sales inbox for review.
             </p>
             <p class="rfq-note">
               For accurate recommendations, include your workpiece material,
@@ -462,7 +462,7 @@
               <a href="mailto:info@ferrabrio.com">info@ferrabrio.com</a>.
             </p>
           </div>
-          <form class="form" id="quote-form">
+          <form class="form" id="quote-form" action="https://formsubmit.co/ajax/info@ferrabrio.com" method="post">
             <label
               >Name<input
                 required
@@ -496,7 +496,8 @@
                 name="requirements"
                 placeholder="Example: remove weld spatter from carbon-steel tube; machine spindle / target quantity / requested dimensions."
               ></textarea></label
-            ><button class="btn wide" type="submit">Prepare RFQ email</button>
+            ><input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" /><input type="hidden" name="_subject" value="New FERRABRIO industrial brush RFQ" /><input type="hidden" name="_template" value="table" /><button class="btn wide" type="submit">Submit technical RFQ</button>
+            <p class="form-privacy wide">Your details are used to review and respond to this industrial brush inquiry. No email app is required.</p>
             <p class="form-status wide" id="form-status" aria-live="polite"></p>
           </form>
         </div>
@@ -540,22 +541,34 @@
         );
         productObserver.observe(productSection);
       }
-      document
-        .getElementById("quote-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const d = new FormData(this),
-            s = Object.fromEntries(d.entries()),
-            body = `Name: ${s.name}\nEmail: ${s.email}\nCompany: ${s.company}\nBrush family: ${s.family}\n\nApplication & technical requirements:\n${s.requirements}`;
-          gtag("event", "generate_rfq", { brush_family: s.family });
-          document.getElementById("form-status").textContent =
-            "Your email client is opening. Please send the prepared message to complete the RFQ.";
-          window.location.href =
-            "mailto:info@ferrabrio.com?subject=" +
-            encodeURIComponent("Industrial Brush RFQ — " + s.family) +
-            "&body=" +
-            encodeURIComponent(body);
-        });
+      const quoteForm = document.getElementById("quote-form");
+      const formStatus = document.getElementById("form-status");
+      quoteForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        if (!quoteForm.reportValidity()) return;
+        const data = Object.fromEntries(new FormData(quoteForm).entries());
+        data._replyto = data.email;
+        const submitButton = quoteForm.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        quoteForm.setAttribute("aria-busy", "true");
+        formStatus.textContent = "Sending your RFQ…";
+        try {
+          const response = await fetch(quoteForm.action, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify(data),
+          });
+          if (!response.ok) throw new Error("RFQ delivery failed");
+          gtag("event", "generate_rfq", { brush_family: data.family, submission_method: "online_form" });
+          formStatus.textContent = "Thank you — your RFQ has been received. FERRABRIO will review the technical details and reply to your work email.";
+          quoteForm.reset();
+        } catch (error) {
+          formStatus.innerHTML = 'Your RFQ could not be sent right now. Please email <a href="mailto:info@ferrabrio.com">info@ferrabrio.com</a> and include your technical requirements.';
+        } finally {
+          submitButton.disabled = false;
+          quoteForm.removeAttribute("aria-busy");
+        }
+      });
     </script>
   </body>
 </html>

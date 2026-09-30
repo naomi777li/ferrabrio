@@ -562,10 +562,31 @@ textarea {
 .form .btn:hover {
   background: #b9d856;
 }
+.form .btn:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+.form-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.form-privacy {
+  margin: 0;
+  color: #bdd4e7;
+  font-size: 0.75rem;
+}
 .form-status {
   font-size: 0.83rem;
   color: #d8ecfa;
   margin: 0;
+}
+.form-status a {
+  color: var(--lime);
+  text-decoration: underline;
 }
 .footer {
   background: #071a2e;

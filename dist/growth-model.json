@@ -42,7 +42,7 @@
   },
   "events": [
     {"name":"view_product_family","meaning":"Visitor reaches a product-family card or product section.","success":"Signals category relevance; compare by family and market."},
-    {"name":"generate_rfq","meaning":"Visitor submits the RFQ form and opens the prepared inquiry email.","success":"Primary micro-conversion; tag by selected brush family and landing page."},
+    {"name":"generate_rfq","meaning":"Visitor submits the online RFQ form and the delivery endpoint accepts the inquiry.","success":"Primary conversion; tag by selected brush family, landing page and submission method."},
     {"name":"article_to_rfq","meaning":"Visitor follows an article CTA to the RFQ section.","success":"Measures content-assisted commercial intent."},
     {"name":"outbound_contact","meaning":"Visitor uses a verified future email, phone or WhatsApp contact action.","success":"Primary conversion once contact details are connected."}
   ],
