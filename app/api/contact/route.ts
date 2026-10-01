@@ -4,6 +4,11 @@ type Rfq = {
   company?: unknown;
   family?: unknown;
   requirements?: unknown;
+  landing_page?: unknown;
+  referrer?: unknown;
+  utm_source?: unknown;
+  utm_medium?: unknown;
+  utm_campaign?: unknown;
   _honey?: unknown;
 };
 
@@ -18,7 +23,20 @@ function response(body: Record<string, unknown>, status = 200) {
   });
 }
 
+function isAllowedOrigin(origin: string | null) {
+  if (!origin) return true;
+  try {
+    return /^(www\.)?ferrabrio\.com$/.test(new URL(origin).hostname);
+  } catch {
+    return false;
+  }
+}
+
 export async function POST(request: Request) {
+  if (!isAllowedOrigin(request.headers.get("origin"))) {
+    return response({ delivered: false, error: "Invalid request origin" }, 403);
+  }
+
   const contentType = request.headers.get("content-type") ?? "";
   if (!contentType.includes("application/json")) {
     return response({ delivered: false, error: "Invalid request format" }, 415);
@@ -39,6 +57,11 @@ export async function POST(request: Request) {
   const company = text(data.company, 160);
   const family = text(data.family, 120);
   const requirements = text(data.requirements, 5000);
+  const landingPage = text(data.landing_page, 500);
+  const referrer = text(data.referrer, 500);
+  const utmSource = text(data.utm_source, 120);
+  const utmMedium = text(data.utm_medium, 120);
+  const utmCampaign = text(data.utm_campaign, 160);
 
   if (!name || !EMAIL.test(email) || !requirements) {
     return response({ delivered: false, error: "Please complete the required fields" }, 400);
@@ -55,6 +78,13 @@ export async function POST(request: Request) {
     "",
     "Application & technical requirements:",
     requirements,
+    "",
+    "Attribution:",
+    `Landing page: ${landingPage || "Not supplied"}`,
+    `Referrer: ${referrer || "Direct / not supplied"}`,
+    `UTM source: ${utmSource || "Not supplied"}`,
+    `UTM medium: ${utmMedium || "Not supplied"}`,
+    `UTM campaign: ${utmCampaign || "Not supplied"}`,
   ].join("\n");
 
   const apiKey = process.env.RESEND_API_KEY;

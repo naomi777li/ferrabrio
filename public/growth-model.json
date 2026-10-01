@@ -1,5 +1,5 @@
 {
-  "modelVersion": "1.0.0",
+  "modelVersion": "1.1.0",
   "brand": "FERRABRIO",
   "updatedAt": "2026-09-30",
   "operatingPrinciple": "No page, article, CTA, internal link or optimization is published unless it maps to a segment, intent, keyword cluster, conversion event and review rule in this model.",
@@ -24,10 +24,10 @@
     "claimsGuardrail":"Do not publish unverified certifications, production capacity, lead time, safety rating or market-specific compliance claims."
   },
   "intentPages": [
-    {"url":"/","intent":"commercial-investigation","coreTerms":["industrial wire brush manufacturer","custom industrial brushes","wire wheel brush supplier"],"supportingTerms":["OEM wire brushes","wheel brush manufacturer","industrial brush factory China"],"personaIds":["oem-engineer","distributor","mro-buyer"],"cta":"Technical RFQ","primaryEvent":"generate_rfq"},
+    {"url":"/","intent":"commercial-investigation","coreTerms":["industrial wire brush manufacturer","custom industrial brushes","wire wheel brush supplier"],"supportingTerms":["OEM wire brushes","wheel brush manufacturer","industrial brush factory China"],"personaIds":["oem-engineer","distributor","mro-buyer"],"cta":"Technical RFQ","primaryEvent":"rfq_submit"},
     {"url":"/#products","intent":"category","coreTerms":["wire wheel brush","cup wire brush","abrasive nylon brush","bonded brush"],"supportingTerms":["twist knot wheel brush","custom wheel brush","industrial brush types"],"personaIds":["oem-engineer","mro-buyer"],"cta":"Explore brush family","primaryEvent":"view_product_family"},
-    {"url":"/#custom","intent":"high-commercial","coreTerms":["custom wire brush manufacturer","OEM industrial brushes","custom wheel brush"],"supportingTerms":["brush drawing manufacturer","custom brush filament","industrial brush OEM China"],"personaIds":["oem-engineer","distributor"],"cta":"Send technical requirements","primaryEvent":"generate_rfq"},
-    {"url":"/#applications","intent":"problem-solution","coreTerms":["wire brush for rust removal","wire brush for weld spatter","industrial deburring brush"],"supportingTerms":["pipe cleaning brush","metal fabrication brush","maintenance wire brush"],"personaIds":["mro-buyer","oem-engineer"],"cta":"Match an application","primaryEvent":"generate_rfq"},
+    {"url":"/#custom","intent":"high-commercial","coreTerms":["custom wire brush manufacturer","OEM industrial brushes","custom wheel brush"],"supportingTerms":["brush drawing manufacturer","custom brush filament","industrial brush OEM China"],"personaIds":["oem-engineer","distributor"],"cta":"Send technical requirements","primaryEvent":"rfq_submit"},
+    {"url":"/#applications","intent":"problem-solution","coreTerms":["wire brush for rust removal","wire brush for weld spatter","industrial deburring brush"],"supportingTerms":["pipe cleaning brush","metal fabrication brush","maintenance wire brush"],"personaIds":["mro-buyer","oem-engineer"],"cta":"Match an application","primaryEvent":"rfq_submit"},
     {"url":"/journal/how-to-specify-a-wire-wheel-brush.html","intent":"informational-to-commercial","coreTerms":["how to choose wire wheel brush","wire wheel brush specification","wire brush RPM selection"],"supportingTerms":["crimped versus twist knot wheel","wire brush arbor size"],"personaIds":["oem-engineer","mro-buyer"],"cta":"Prepare an RFQ","primaryEvent":"article_to_rfq"},
     {"url":"/journal/abrasive-nylon-vs-wire-brush.html","intent":"comparison-to-commercial","coreTerms":["abrasive nylon brush vs wire brush","abrasive nylon deburring brush","wire brush surface preparation"],"supportingTerms":["non woven versus wire brush","brush for stainless steel"],"personaIds":["oem-engineer","mro-buyer"],"cta":"Share your application","primaryEvent":"article_to_rfq"}
   ],
@@ -42,14 +42,16 @@
   },
   "events": [
     {"name":"view_product_family","meaning":"Visitor reaches a product-family card or product section.","success":"Signals category relevance; compare by family and market."},
-    {"name":"generate_rfq","meaning":"Visitor submits the online RFQ form and the delivery endpoint accepts the inquiry.","success":"Primary conversion; tag by selected brush family, landing page and submission method."},
+    {"name":"rfq_start","meaning":"Visitor begins typing into the RFQ form.","success":"Use with RFQ errors and submissions to identify form friction."},
+    {"name":"product_to_rfq","meaning":"Visitor moves from a named product family into the RFQ with its family preselected.","success":"Shows which product families create commercial intent."},
+    {"name":"rfq_submit","meaning":"Visitor submits the online RFQ and the delivery endpoint accepts the inquiry.","success":"Primary conversion; tag by selected brush family, landing page and campaign attribution."},
     {"name":"article_to_rfq","meaning":"Visitor follows an article CTA to the RFQ section.","success":"Measures content-assisted commercial intent."},
     {"name":"outbound_contact","meaning":"Visitor uses a verified future email, phone or WhatsApp contact action.","success":"Primary conversion once contact details are connected."}
   ],
   "measurement": {"ga4MeasurementId":"G-Q5M5LW282F","searchConsoleProperty":"sc-domain:ferrabrio.com","cadence":"Weekly review; use qualified RFQ signals, landing-page intent and search-query groups before publishing or changing a page."},
   "signalRules": [
     {"if":"GSC query has 100+ impressions / 28 days, average position 8–20 and CTR below 2.5%","then":"Rewrite title and meta to match the query’s commercial or problem-solving intent; add a concise answer and internal link from the closest page.","owner":"SEO"},
-    {"if":"A commercial page has engaged sessions but no generate_rfq event","then":"Audit proof, technical inputs, contact friction and CTA placement before adding more traffic.","owner":"CRO"},
+    {"if":"A commercial page has engaged sessions but no rfq_submit event","then":"Audit proof, technical inputs, contact friction and CTA placement before adding more traffic.","owner":"CRO"},
     {"if":"An article sends visitors to RFQ but article_to_rfq rate is below 1% after 150 engaged views","then":"Improve the application checklist, add a decision table and tighten the commercial next step.","owner":"Content"},
     {"if":"A query converts through an RFQ or qualified lead","then":"Promote it to a primary term on its mapped intent page; create one supporting application page only if it has distinct buyer need.","owner":"Growth"},
     {"if":"A page earns non-brand impressions but has no entity / evidence clarity","then":"Add accountable product detail, sourceable material / process information, precise headings and structured data appropriate to the page.","owner":"GEO"}

@@ -11,11 +11,57 @@ export function RfqHandler() {
     const button = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
     if (!form || !status || !button) return;
 
+    const family = new URLSearchParams(window.location.search).get("family");
+    const familySelect = form.elements.namedItem("family");
+    if (family && familySelect instanceof HTMLSelectElement) {
+      const matchingOption = [...familySelect.options].some((option) => option.value === family);
+      if (matchingOption) familySelect.value = family;
+    }
+
+    const productSection = document.querySelector("#products");
+    const observer = productSection && "IntersectionObserver" in window
+      ? new IntersectionObserver(
+          (entries) => {
+            if (entries[0]?.isIntersecting) {
+              window.gtag?.("event", "view_product_family", {
+                item_list_name: "Industrial brush catalogue",
+              });
+              observer.disconnect();
+            }
+          },
+          { threshold: 0.45 },
+        )
+      : null;
+    if (productSection && observer) observer.observe(productSection);
+
+    let formStarted = false;
+    const trackFormStart = () => {
+      if (formStarted) return;
+      formStarted = true;
+      window.gtag?.("event", "rfq_start", { form_name: "technical_rfq" });
+    };
+    form.addEventListener("input", trackFormStart);
+
+    const productCtas = [...document.querySelectorAll<HTMLAnchorElement>("[data-product-family]")];
+    const trackProductCta = (event: Event) => {
+      const link = event.currentTarget as HTMLAnchorElement;
+      window.gtag?.("event", "product_to_rfq", {
+        product_family: link.dataset.productFamily,
+      });
+    };
+    productCtas.forEach((link) => link.addEventListener("click", trackProductCta));
+
     const submit = async (event: SubmitEvent) => {
       event.preventDefault();
       if (!form.reportValidity()) return;
 
       const values = Object.fromEntries(new FormData(form).entries());
+      const currentUrl = new URL(window.location.href);
+      values.landing_page = currentUrl.href;
+      values.referrer = document.referrer;
+      values.utm_source = currentUrl.searchParams.get("utm_source") ?? "";
+      values.utm_medium = currentUrl.searchParams.get("utm_medium") ?? "";
+      values.utm_campaign = currentUrl.searchParams.get("utm_campaign") ?? "";
       const originalLabel = button.textContent;
       button.disabled = true;
       button.textContent = "Sending RFQ…";
@@ -32,7 +78,13 @@ export function RfqHandler() {
 
         form.reset();
         status.textContent = "Thank you — your RFQ has been delivered to our sales team. We will review the technical details and reply by email.";
-        window.gtag?.("event", "rfq_submit", { form_name: "technical_rfq", status: "delivered" });
+        const eventData = {
+          form_name: "technical_rfq",
+          status: "delivered",
+          product_family: String(values.family ?? "Not supplied"),
+        };
+        window.gtag?.("event", "rfq_submit", eventData);
+        window.gtag?.("event", "generate_rfq", eventData);
       } catch {
         status.textContent = "We could not deliver the RFQ just now. Please email info@ferrabrio.com and include your requirements.";
         window.gtag?.("event", "rfq_submit_error", { form_name: "technical_rfq" });
@@ -43,7 +95,12 @@ export function RfqHandler() {
     };
 
     form.addEventListener("submit", submit);
-    return () => form.removeEventListener("submit", submit);
+    return () => {
+      form.removeEventListener("submit", submit);
+      form.removeEventListener("input", trackFormStart);
+      productCtas.forEach((link) => link.removeEventListener("click", trackProductCta));
+      observer?.disconnect();
+    };
   }, []);
 
   return null;

@@ -319,6 +319,17 @@ textarea {
   font-size: 0.82rem;
   font-weight: 800;
 }
+.product-cta {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--blue);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+.product-cta:hover {
+  color: #084b89;
+  text-decoration: underline;
+}
 .config {
   background: #e9f2f8;
 }
