@@ -2,8 +2,6 @@
 
 import { useEffect } from "react";
 
-type RfqResponse = { delivered?: boolean; error?: string };
-
 export function RfqHandler() {
   useEffect(() => {
     const form = document.querySelector<HTMLFormElement>("#quote-form");
@@ -51,47 +49,14 @@ export function RfqHandler() {
     };
     productCtas.forEach((link) => link.addEventListener("click", trackProductCta));
 
-    const submit = async (event: SubmitEvent) => {
-      event.preventDefault();
-      if (!form.reportValidity()) return;
-
-      const values = Object.fromEntries(new FormData(form).entries());
-      const currentUrl = new URL(window.location.href);
-      values.landing_page = currentUrl.href;
-      values.referrer = document.referrer;
-      values.utm_source = currentUrl.searchParams.get("utm_source") ?? "";
-      values.utm_medium = currentUrl.searchParams.get("utm_medium") ?? "";
-      values.utm_campaign = currentUrl.searchParams.get("utm_campaign") ?? "";
-      const originalLabel = button.textContent;
-      button.disabled = true;
-      button.textContent = "Sending RFQ…";
-      status.textContent = "Sending your request securely…";
-
-      try {
-        const response = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(values),
-        });
-        const result = (await response.json().catch(() => ({}))) as RfqResponse;
-        if (!response.ok || !result.delivered) throw new Error(result.error ?? "Delivery failed");
-
-        form.reset();
-        status.textContent = "Thank you — your RFQ has been delivered to our sales team. We will review the technical details and reply by email.";
-        const eventData = {
-          form_name: "technical_rfq",
-          status: "delivered",
-          product_family: String(values.family ?? "Not supplied"),
-        };
-        window.gtag?.("event", "rfq_submit", eventData);
-        window.gtag?.("event", "generate_rfq", eventData);
-      } catch {
-        status.textContent = "We could not deliver the RFQ just now. Please email info@ferrabrio.com and include your requirements.";
-        window.gtag?.("event", "rfq_submit_error", { form_name: "technical_rfq" });
-      } finally {
-        button.disabled = false;
-        button.textContent = originalLabel;
-      }
+    const submit = () => {
+      const productFamily = form.elements.namedItem("family");
+      status.textContent = "Submitting your RFQ…";
+      window.gtag?.("event", "rfq_submit", {
+        form_name: "technical_rfq",
+        status: "submitted",
+        product_family: productFamily instanceof HTMLSelectElement ? productFamily.value : "Not supplied",
+      });
     };
 
     form.addEventListener("submit", submit);
