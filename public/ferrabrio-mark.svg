@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+  <title id="title">FERRABRIO brand mark</title>
+  <rect width="256" height="256" rx="48" fill="#103a5e"/>
+  <circle cx="170" cy="128" r="52" fill="none" stroke="#77c6f4" stroke-width="16"/>
+  <path d="M170 58v-18M203 72l13-13M222 108h18M222 148h18M203 184l13 13M170 198v18" stroke="#ef9b47" stroke-width="10" stroke-linecap="round"/>
+  <path d="M55 55h95v31H93v27h47v30H93v58H55V55Z" fill="#fff"/>
+</svg>

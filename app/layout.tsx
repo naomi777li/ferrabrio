@@ -18,8 +18,8 @@ export const metadata: Metadata = {
       "Tell us the workpiece, machine and target finish. We configure the industrial brush around your process.",
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/ferrabrio-mark.svg",
+    shortcut: "/ferrabrio-mark.svg",
   },
 };
 
@@ -38,6 +38,7 @@ export default function RootLayout({
             "@type": "Organization",
             name: "FERRABRIO",
             url: "https://ferrabrio.com/",
+            logo: "https://ferrabrio.com/ferrabrio-mark.svg",
             description:
               "Custom industrial wire brush manufacturer for metalworking, surface preparation and process cleaning.",
             email: "info@ferrabrio.com",
