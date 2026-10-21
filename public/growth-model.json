@@ -46,6 +46,7 @@
     {"name":"product_to_rfq","meaning":"Visitor moves from a named product family into the RFQ with its family preselected.","success":"Shows which product families create commercial intent."},
     {"name":"rfq_submit","meaning":"Visitor submits the online RFQ and the delivery endpoint accepts the inquiry.","success":"Primary conversion; tag by selected brush family, landing page and campaign attribution."},
     {"name":"article_to_rfq","meaning":"Visitor follows an article CTA to the RFQ section.","success":"Measures content-assisted commercial intent."},
+    {"name":"article_to_product","meaning":"Visitor follows an article's contextual link to a matching brush family or product directory.","success":"Measures article-assisted product discovery by source article and destination path."},
     {"name":"outbound_contact","meaning":"Visitor uses a verified future email, phone or WhatsApp contact action.","success":"Primary conversion once contact details are connected."}
   ],
   "measurement": {"ga4MeasurementId":"G-Q5M5LW282F","searchConsoleProperty":"sc-domain:ferrabrio.com","cadence":"Weekly review; use qualified RFQ signals, landing-page intent and search-query groups before publishing or changing a page."},
