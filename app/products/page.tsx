@@ -69,7 +69,7 @@ const families = [
     alt: "Illustrative concept of end and internal tube brush formats",
     note: "Illustrative product direction; not a verified production model.",
     options: ["End, tube or bore access", "Reach and entry path", "Shank or drawing-led fitment"],
-    link: "/products/end-and-internal-brushes.html",
+    link: "/products/end-and-internal-brushes",
     cta: "Explore end & internal",
   },
   {
@@ -80,7 +80,7 @@ const families = [
     alt: "Illustrative concept showing roller and metal-backed strip brush formats",
     note: "Illustrative product direction; dimensions and construction are confirmed against the installation.",
     options: ["Roller or strip format", "Core, backing and working width", "Fill pattern and mounting"],
-    link: "/products/roller-and-strip-brushes.html",
+    link: "/products/roller-and-strip-brushes",
     cta: "Explore roller & strip",
   },
 ];
