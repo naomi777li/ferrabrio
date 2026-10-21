@@ -154,6 +154,17 @@ export default function ProductsPage() {
               <h2 id="brush-build-title">From application brief to a repeatable brush build.</h2>
               <p>Each family uses different construction methods. The typical OEM workflow below keeps fitment, fill and acceptance points clear before a production order.</p>
             </div>
+            <figure className="brush-process-visual">
+              <Image
+                src="/assets/brush-engineering-process-illustration.png"
+                alt="Illustrative view of industrial brush components being reviewed and checked at a workbench"
+                width={1536}
+                height={1024}
+                sizes="(max-width: 900px) 100vw, 1100px"
+                unoptimized
+              />
+              <figcaption>Illustrative process visualization—not a photograph of Ferrabrio’s facility or a verified production run. Actual manufacturing and inspection steps depend on the confirmed brush specification.</figcaption>
+            </figure>
             <ol className="brush-build-steps">
               <li><span>01</span><div><h3>Review drawing or sample</h3><p>Confirm workpiece, access path, machine interface and the surface result required.</p></div></li>
               <li><span>02</span><div><h3>Define fill and construction</h3><p>Select brush geometry, filament family, trim, density and core or hub around the job.</p></div></li>
