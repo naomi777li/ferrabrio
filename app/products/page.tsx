@@ -85,6 +85,18 @@ const families = [
   },
 ];
 
+// Treat a repeated image across distinct product families as a build-time
+// content error, rather than letting a generic fallback make the catalogue
+// look duplicated in production.
+const familyImages = families.map(({ image }) => image);
+if (new Set(familyImages).size !== familyImages.length) {
+  throw new Error("Product families must use distinct images.");
+}
+
+if (families.some(({ image, alt }) => !image || !alt.trim())) {
+  throw new Error("Every product family must have an image and descriptive alt text.");
+}
+
 export default function ProductsPage() {
   return (
     <div className="brush-directory">
