@@ -319,6 +319,12 @@ textarea {
   font-size: 0.82rem;
   font-weight: 800;
 }
+.product .visual-note {
+  margin-top: 10px;
+  color: #6c737a;
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
 .config {
   background: #e9f2f8;
 }
