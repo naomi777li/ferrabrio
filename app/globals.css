@@ -346,8 +346,11 @@ textarea {
 }
 .material-showcase { background: #101f30; color: #fff; }
 .material-showcase-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(34px, 6vw, 78px); }
+.material-visual-stack { display: grid; gap: 16px; }
 .material-visual { margin: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.16); background: #202934; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
 .material-visual img { width: 100%; aspect-ratio: 1.5; object-fit: cover; }
+.material-visual.process-visual { max-width: none; margin: 0; }
+.material-visual.process-visual img { max-height: none; }
 .material-visual figcaption,
 .process-visual figcaption { padding: 11px 14px; color: #c3d0dc; font-size: .72rem; line-height: 1.5; }
 .material-copy h2 { max-width: 650px; margin: 0; color: #fff; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.08; letter-spacing: -.045em; }
