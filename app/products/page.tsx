@@ -24,6 +24,7 @@ const families = [
     image: "/assets/twist-knot-wheel.jpg",
     alt: "Twist-knot wire wheel brush, representative product image",
     note: "Representative product image; final wire, geometry and mounting are application-reviewed.",
+    options: ["Crimped or twist-knot wire", "Steel or stainless fill", "Arbor and hub fitment"],
     link: "/products/industrial-wheel-brushes",
     cta: "Explore wheel brushes",
   },
@@ -34,6 +35,7 @@ const families = [
     image: "/assets/cup-brush-nylon.jpg",
     alt: "Abrasive nylon cup brush, representative product image",
     note: "Reference image; fill and construction are selected for the intended process.",
+    options: ["Wire or nylon fill", "Cup or bevel profile", "Machine interface review"],
     link: "/products/custom-cup-brushes",
     cta: "Explore cup brushes",
   },
@@ -44,6 +46,7 @@ const families = [
     image: "/assets/bonded-flat-brush.jpg",
     alt: "Flat bonded industrial brush, representative product image",
     note: "Representative product image; mounting and brush profile are confirmed by drawing review.",
+    options: ["Custom block or segment", "Profile and fill pattern", "Mounting from drawing"],
     link: "/products/bonded-industrial-brushes",
     cta: "Explore bonded brushes",
   },
@@ -51,9 +54,10 @@ const families = [
     name: "Abrasive nylon brushes",
     description:
       "A non-metallic abrasive-filament direction for cleaning and finishing work. Grain, filament, contact pressure and substrate compatibility need review together.",
-    image: "/assets/cup-brush-nylon.jpg",
-    alt: "Abrasive nylon cup brush for industrial surface finishing",
-    note: "Material compatibility and the required finish should be validated for each application.",
+    image: "/assets/abrasive-nylon-disc-concept.png",
+    alt: "Illustrative concept of a flat abrasive nylon disc brush with a metal mounting hub",
+    note: "Illustrative product concept; select abrasive fill, face geometry and mounting for the process.",
+    options: ["Abrasive nylon filament", "Disc or face-contact formats", "Finish and substrate review"],
     link: "/products/abrasive-nylon-brushes",
     cta: "Explore abrasive nylon",
   },
@@ -64,6 +68,7 @@ const families = [
     image: "/assets/end-internal-brush-concept.jpg",
     alt: "Illustrative concept of end and internal tube brush formats",
     note: "Illustrative product direction; not a verified production model.",
+    options: ["End, tube or bore access", "Reach and entry path", "Shank or drawing-led fitment"],
     link: "/products/end-and-internal-brushes.html",
     cta: "Explore end & internal",
   },
@@ -74,6 +79,7 @@ const families = [
     image: "/assets/roller-strip-brush-concept.jpg",
     alt: "Illustrative concept showing roller and metal-backed strip brush formats",
     note: "Illustrative product direction; dimensions and construction are confirmed against the installation.",
+    options: ["Roller or strip format", "Core, backing and working width", "Fill pattern and mounting"],
     link: "/products/roller-and-strip-brushes.html",
     cta: "Explore roller & strip",
   },
@@ -129,12 +135,32 @@ export default function ProductsPage() {
                     <p className="eyebrow">APPLICATION-LED SELECTION</p>
                     <h2><a href={family.link}>{family.name}</a></h2>
                     <p>{family.description}</p>
+                    <ul className="brush-family-options" aria-label={`Common configuration choices for ${family.name}`}>
+                      {family.options.map((option) => <li key={option}>{option}</li>)}
+                    </ul>
                     <small>{family.note}</small>
                     <a className="brush-family-link" href={family.link}>{family.cta} <span aria-hidden="true">→</span></a>
                   </div>
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="brush-directory-build" aria-labelledby="brush-build-title">
+          <div className="wrap">
+            <div className="section-head">
+              <p className="eyebrow">MANUFACTURING &amp; PROCESS CONTROL</p>
+              <h2 id="brush-build-title">From application brief to a repeatable brush build.</h2>
+              <p>Each family uses different construction methods. The typical OEM workflow below keeps fitment, fill and acceptance points clear before a production order.</p>
+            </div>
+            <ol className="brush-build-steps">
+              <li><span>01</span><div><h3>Review drawing or sample</h3><p>Confirm workpiece, access path, machine interface and the surface result required.</p></div></li>
+              <li><span>02</span><div><h3>Define fill and construction</h3><p>Select brush geometry, filament family, trim, density and core or hub around the job.</p></div></li>
+              <li><span>03</span><div><h3>Confirm sample references</h3><p>Agree the fit, contact profile and inspection points for the intended application before repeat production.</p></div></li>
+              <li><span>04</span><div><h3>Pack to the supply route</h3><p>Set labels, quantity per pack and export-carton requirements with the buyer.</p></div></li>
+            </ol>
+            <p className="brush-build-note">Typical manufacturing path; exact operations and inspection criteria vary by brush design and are confirmed with the order specification.</p>
           </div>
         </section>
 
