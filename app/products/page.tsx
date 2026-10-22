@@ -5,12 +5,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Industrial Brush Types & Custom Brush Manufacturer | FERRABRIO",
   description:
-    "Compare industrial wheel, cup, bonded, abrasive nylon, end, internal, roller and strip brush families. Match brush design to the workpiece, machine and finish.",
+    "Explore industrial wire wheel, cup, disc, pipe and tube, bonded, abrasive nylon, end, roller and strip brushes. Compare formats and request an application-matched custom brush review.",
   alternates: { canonical: "/products" },
   openGraph: {
     title: "Industrial Brush Families | FERRABRIO",
     description:
-      "Explore brush geometries for surface preparation, deburring, cleaning and process applications.",
+      "Browse industrial brush types for deburring, pipe and bore cleaning, surface preparation and line-integrated applications.",
     url: "/products",
     type: "website",
   },
@@ -73,6 +73,28 @@ const families = [
     cta: "Explore end & internal",
   },
   {
+    name: "Pipe & tube brushes",
+    description:
+      "For cleaning and finishing inside tubes, pipes, passages and bores. Match brush head, reach, access path and fill to the opening and workpiece material.",
+    image: "/assets/tube-pipe-brushes.jpg",
+    alt: "Industrial pipe and tube cleaning brushes with twisted-wire stems and cylindrical brush heads",
+    note: "Product family view; final head, reach, fill and attachment are reviewed against the part.",
+    options: ["Tube, pipe or bore cleaning", "Wire or non-metallic fill review", "Reach and tool connection"],
+    link: "/products/tube-and-pipe-brushes",
+    cta: "Explore pipe & tube brushes",
+  },
+  {
+    name: "Disc & face brushes",
+    description:
+      "For broad, controlled contact across a face or defined surface area. Select brush profile, fill and mounting around the machine, surface condition and target finish.",
+    image: "/assets/disc-face-brushes.jpg",
+    alt: "Industrial disc and face brushes in wire and abrasive filament formats with metal hubs",
+    note: "Product family view; final geometry, fill and interface require application review.",
+    options: ["Face-contact and disc formats", "Wire or abrasive filament", "Hub and machine fit review"],
+    link: "/products/disc-and-face-brushes",
+    cta: "Explore disc & face brushes",
+  },
+  {
     name: "Roller & strip brushes",
     description:
       "Continuous or linear brush formats for guided contact across a working width. Share the installation envelope, backing or core, fill and process speed.",
@@ -133,7 +155,7 @@ export default function ProductsPage() {
         <section className="brush-directory-catalog" aria-labelledby="brush-families-title">
           <div className="wrap">
             <div className="section-head">
-              <p className="eyebrow">SIX CONFIGURABLE FAMILIES</p>
+              <p className="eyebrow">EIGHT CONFIGURABLE FAMILIES</p>
               <h2 id="brush-families-title">Start with access, contact and process.</h2>
               <p>Compare established brush forms, then send a drawing, sample or process photo for a focused technical review.</p>
             </div>

@@ -1,12 +1,21 @@
 {
   "modelVersion": "1.1.0",
   "brand": "FERRABRIO",
-  "updatedAt": "2026-09-30",
+  "updatedAt": "2026-10-21",
   "operatingPrinciple": "No page, article, CTA, internal link or optimization is published unless it maps to a segment, intent, keyword cluster, conversion event and review rule in this model.",
   "dataState": {
-    "gsc": "domain property verified; sitemap submitted",
+    "gsc": "domain property verified; sitemap submitted. Three-month snapshot reviewed 2026-10-21: 7 impressions, 0 clicks, 0% CTR, average position 40.3; no query-level sample large enough for volume-led conclusions.",
     "ga4": "G-Q5M5LW282F installed; awaiting initial visitor data",
     "cadence": "Weekly signal review; monthly cluster and conversion review; quarterly positioning review."
+  },
+  "keywordEvidence": {
+    "firstParty": "Ferrabrio's own Search Console only; current three-month sample is very small and should not be treated as a reliable demand estimate.",
+    "marketResearch": [
+      {"source":"Shengquan Brush public catalogue","url":"https://www.shengquanbrush.com/products/","observation":"Pipe/tube and disc/face forms appear as distinct product families in an industrial brush catalogue."},
+      {"source":"Industrial Brushware Industries product list","url":"https://www.ibibrushware.com/products.html","observation":"Tube/boiler-tube and disc brushes are separately navigable categories, supporting distinct procurement-intent landing pages."},
+      {"source":"Cocker-Weber industrial brush types","url":"https://www.cocker-weber.com/industrial-brush-types/","observation":"Disc and other brush geometries are distinguished by access and contact form."}
+    ],
+    "limitation":"Public catalog structure is qualitative market research, not measured search volume. Reassess clusters when Ferrabrio GSC impressions grow."
   },
   "marketPriorities": [
     {"market":"United States & Canada","why":"High search demand for industrial wire brushes, power-tool accessories and MRO supply; buyers expect clear fitment and fast technical response.","proofNeeded":"Imperial and metric mounting options, machine compatibility, response SLA."},
@@ -26,6 +35,8 @@
   "intentPages": [
     {"url":"/","intent":"commercial-investigation","coreTerms":["industrial wire brush manufacturer","custom industrial brushes","wire wheel brush supplier"],"supportingTerms":["OEM wire brushes","wheel brush manufacturer","industrial brush factory China"],"personaIds":["oem-engineer","distributor","mro-buyer"],"cta":"Technical RFQ","primaryEvent":"rfq_submit"},
     {"url":"/#products","intent":"category","coreTerms":["wire wheel brush","cup wire brush","abrasive nylon brush","bonded brush"],"supportingTerms":["twist knot wheel brush","custom wheel brush","industrial brush types"],"personaIds":["oem-engineer","mro-buyer"],"cta":"Explore brush family","primaryEvent":"view_product_family"},
+    {"url":"/products/tube-and-pipe-brushes","intent":"commercial-product-family","coreTerms":["industrial pipe brush","tube cleaning brush","industrial bore brush"],"supportingTerms":["custom pipe cleaning brush","internal tube brush manufacturer","wire tube brush","bore deburring brush"],"personaIds":["oem-engineer","mro-buyer"],"cta":"Request a pipe or tube brush quote","primaryEvent":"product_to_rfq"},
+    {"url":"/products/disc-and-face-brushes","intent":"commercial-product-family","coreTerms":["industrial disc brush","industrial face brush","wire disc brush"],"supportingTerms":["custom disc brush","abrasive nylon disc brush","surface preparation disc brush","disc brush manufacturer"],"personaIds":["oem-engineer","mro-buyer"],"cta":"Request a disc brush quote","primaryEvent":"product_to_rfq"},
     {"url":"/#custom","intent":"high-commercial","coreTerms":["custom wire brush manufacturer","OEM industrial brushes","custom wheel brush"],"supportingTerms":["brush drawing manufacturer","custom brush filament","industrial brush OEM China"],"personaIds":["oem-engineer","distributor"],"cta":"Send technical requirements","primaryEvent":"rfq_submit"},
     {"url":"/#applications","intent":"problem-solution","coreTerms":["wire brush for rust removal","wire brush for weld spatter","industrial deburring brush"],"supportingTerms":["pipe cleaning brush","metal fabrication brush","maintenance wire brush"],"personaIds":["mro-buyer","oem-engineer"],"cta":"Match an application","primaryEvent":"rfq_submit"},
     {"url":"/journal/how-to-specify-a-wire-wheel-brush","intent":"informational-to-commercial","coreTerms":["how to choose wire wheel brush","wire wheel brush specification","wire brush RPM selection"],"supportingTerms":["crimped versus twist knot wheel","wire brush arbor size"],"personaIds":["oem-engineer","mro-buyer"],"cta":"Prepare an RFQ","primaryEvent":"article_to_rfq"},
@@ -38,6 +49,8 @@
       {"topic":"How to specify a custom roller brush for tube and pipe processing","intent":"solution","destination":"/#custom","persona":"oem-engineer","priority":"high"},
       {"topic":"Private-label industrial brushes: a distributor readiness checklist","intent":"commercial","destination":"/#custom","persona":"distributor","priority":"medium"},
       {"topic":"Preventing ferrous contamination when brushing stainless steel","intent":"technical","destination":"/#applications","persona":"oem-engineer","priority":"medium"}
+      ,{"topic":"How to choose a pipe or tube cleaning brush for internal access","intent":"solution","destination":"/products/tube-and-pipe-brushes","persona":"oem-engineer","priority":"medium"},
+      {"topic":"Disc brush vs wheel brush: contact area, access and machine fit","intent":"comparison","destination":"/products/disc-and-face-brushes","persona":"mro-buyer","priority":"medium"}
     ]
   },
   "events": [
