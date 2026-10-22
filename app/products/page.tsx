@@ -62,15 +62,15 @@ const families = [
     cta: "Explore abrasive nylon",
   },
   {
-    name: "End & internal brushes",
+    name: "Shank-mounted end brushes",
     description:
-      "For localized work on edges, bores, tubes and restricted profiles. Specify the access opening, working depth, entry direction and tool interface.",
-    image: "/assets/end-internal-brush-concept.jpg",
-    alt: "Illustrative concept of end and internal tube brush formats",
-    note: "Brush concept · head form and reach are developed from the part geometry.",
-    options: ["End, tube or bore access", "Reach and entry path", "Shank or drawing-led fitment"],
+      "For localized deburring, edge cleaning and spot finishing where a spindle-mounted head can reach a defined area. Review the contact face, workpiece sensitivity and tool interface together.",
+    image: "/assets/shank-end-brush-family-2026.jpg",
+    alt: "Three shank-mounted end-brush formats with crimped steel wire, brass wire and abrasive nylon",
+    note: "AI-generated concept visual · final fill, dimensions and fitment are confirmed for the application.",
+    options: ["Crimped wire or abrasive-filament direction", "Axial end-face contact", "Shank, trim and spindle-interface review"],
     link: "/products/end-and-internal-brushes",
-    cta: "Explore end & internal",
+    cta: "Explore end brushes",
   },
   {
     name: "Pipe & tube brushes",
