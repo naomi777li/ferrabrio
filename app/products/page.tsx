@@ -5,7 +5,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Industrial Brush Types & Custom Brush Manufacturer | FERRABRIO",
   description:
-    "Explore industrial wire wheel, cup, disc, pipe and tube, bonded, abrasive nylon, end, roller and strip brushes. Compare formats and request an application-matched custom brush review.",
+    "Explore industrial wire wheel, cup, disc, pipe and tube, hand wire, bonded, abrasive nylon, end, roller and strip brushes. Compare formats and request an application-matched custom brush review.",
   alternates: { canonical: "/products" },
   openGraph: {
     title: "Industrial Brush Families | FERRABRIO",
@@ -55,7 +55,7 @@ const families = [
     description:
       "A non-metallic abrasive-filament direction for cleaning and finishing work. Grain, filament, contact pressure and substrate compatibility need review together.",
     image: "/assets/abrasive-nylon-disc-concept.png",
-    alt: "Illustrative concept of a flat abrasive nylon disc brush with a metal mounting hub",
+    alt: "Abrasive nylon disc brush with a metal mounting hub",
     note: "Brush concept · abrasive fill, face and mounting follow the process.",
     options: ["Abrasive nylon filament", "Disc or face-contact formats", "Finish and substrate review"],
     link: "/products/abrasive-nylon-brushes",
@@ -67,7 +67,7 @@ const families = [
       "For localized deburring, edge cleaning and spot finishing where a spindle-mounted head can reach a defined area. Review the contact face, workpiece sensitivity and tool interface together.",
     image: "/assets/shank-end-brush-family-2026.jpg",
     alt: "Three shank-mounted end-brush formats with crimped steel wire, brass wire and abrasive nylon",
-    note: "AI-generated concept visual · final fill, dimensions and fitment are confirmed for the application.",
+    note: "Product family visual · fill, dimensions and fitment are confirmed for the application.",
     options: ["Crimped wire or abrasive-filament direction", "Axial end-face contact", "Shank, trim and spindle-interface review"],
     link: "/products/end-and-internal-brushes",
     cta: "Explore end brushes",
@@ -99,11 +99,22 @@ const families = [
     description:
       "Continuous or linear brush formats for guided contact across a working width. Share the installation envelope, backing or core, fill and process speed.",
     image: "/assets/roller-strip-brush-concept.jpg",
-    alt: "Illustrative concept showing roller and metal-backed strip brush formats",
+    alt: "Roller and metal-backed strip brush formats",
     note: "Brush concept · dimensions and construction follow the installation brief.",
     options: ["Roller or strip format", "Core, backing and working width", "Fill pattern and mounting"],
     link: "/products/roller-and-strip-brushes",
     cta: "Explore roller & strip",
+  },
+  {
+    name: "Hand wire scratch brushes",
+    description:
+      "Manual brushes for weld cleanup, rust and loose-scale removal, edge touch-up and maintenance work. Choose the head shape and wire around the joint, access and surface to be protected.",
+    image: "/assets/hand-wire-scratch-brush-family-visual.jpg",
+    alt: "Three hand wire scratch-brush formats with straight, narrow and wide heads",
+    note: "Product family visual · final wire, head and handle details are confirmed for the application.",
+    options: ["Straight, narrow or wide-face heads", "Carbon or stainless wire review", "Handle, reach and access selection"],
+    link: "/products/hand-wire-scratch-brushes",
+    cta: "Explore hand wire brushes",
   },
 ];
 
@@ -155,7 +166,7 @@ export default function ProductsPage() {
         <section className="brush-directory-catalog" aria-labelledby="brush-families-title">
           <div className="wrap">
             <div className="section-head">
-              <p className="eyebrow">EIGHT CONFIGURABLE FAMILIES</p>
+              <p className="eyebrow">NINE CONFIGURABLE FAMILIES</p>
               <h2 id="brush-families-title">Start with access, contact and process.</h2>
               <p>Compare established brush forms, then send a drawing, sample or process photo for a focused technical review.</p>
             </div>

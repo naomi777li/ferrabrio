@@ -62,7 +62,7 @@ export default function RootLayout({
                 name: "Can Ferrabrio make a custom wire brush?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Yes. Wheel, cup, end, roller, strip and bonded brush geometry, filament, trim, density, hub or mounting can be reviewed against the application.",
+                  text: "Yes. Wheel, cup, hand wire, end, roller, strip and bonded brush geometry, filament, trim, density, hub or mounting can be reviewed against the application.",
                 },
               },
               {
