@@ -23,7 +23,7 @@ const families = [
       "For deburring, weld-spatter cleanup, scale removal and surface preparation. Review crimped or twist-knot construction against the workpiece and machine.",
     image: "/assets/twist-knot-wheel.jpg",
     alt: "Twist-knot wire wheel brush, representative product image",
-    note: "Representative product image; final wire, geometry and mounting are application-reviewed.",
+    note: "Brush concept · wire form, size and mounting are set for the application.",
     options: ["Crimped or twist-knot wire", "Steel or stainless fill", "Arbor and hub fitment"],
     link: "/products/industrial-wheel-brushes",
     cta: "Explore wheel brushes",
@@ -34,7 +34,7 @@ const families = [
       "A practical format for broader face contact on welds, castings and prepared surfaces. Start with machine interface, work area and the finish required.",
     image: "/assets/cup-brush-nylon.jpg",
     alt: "Abrasive nylon cup brush, representative product image",
-    note: "Reference image; fill and construction are selected for the intended process.",
+    note: "Brush concept · fill and profile are selected for the contact area.",
     options: ["Wire or nylon fill", "Cup or bevel profile", "Machine interface review"],
     link: "/products/custom-cup-brushes",
     cta: "Explore cup brushes",
@@ -45,7 +45,7 @@ const families = [
       "Profiled or fixture-integrated brush assemblies for controlled contact. Share the base shape, mounting points and surface that needs attention.",
     image: "/assets/bonded-flat-brush.jpg",
     alt: "Flat bonded industrial brush, representative product image",
-    note: "Representative product image; mounting and brush profile are confirmed by drawing review.",
+    note: "Brush concept · profile and mounting are checked against the drawing.",
     options: ["Custom block or segment", "Profile and fill pattern", "Mounting from drawing"],
     link: "/products/bonded-industrial-brushes",
     cta: "Explore bonded brushes",
@@ -56,7 +56,7 @@ const families = [
       "A non-metallic abrasive-filament direction for cleaning and finishing work. Grain, filament, contact pressure and substrate compatibility need review together.",
     image: "/assets/abrasive-nylon-disc-concept.png",
     alt: "Illustrative concept of a flat abrasive nylon disc brush with a metal mounting hub",
-    note: "Illustrative product concept; select abrasive fill, face geometry and mounting for the process.",
+    note: "Brush concept · abrasive fill, face and mounting follow the process.",
     options: ["Abrasive nylon filament", "Disc or face-contact formats", "Finish and substrate review"],
     link: "/products/abrasive-nylon-brushes",
     cta: "Explore abrasive nylon",
@@ -67,7 +67,7 @@ const families = [
       "For localized work on edges, bores, tubes and restricted profiles. Specify the access opening, working depth, entry direction and tool interface.",
     image: "/assets/end-internal-brush-concept.jpg",
     alt: "Illustrative concept of end and internal tube brush formats",
-    note: "Illustrative product direction; not a verified production model.",
+    note: "Brush concept · head form and reach are developed from the part geometry.",
     options: ["End, tube or bore access", "Reach and entry path", "Shank or drawing-led fitment"],
     link: "/products/end-and-internal-brushes",
     cta: "Explore end & internal",
@@ -78,7 +78,7 @@ const families = [
       "For cleaning and finishing inside tubes, pipes, passages and bores. Match brush head, reach, access path and fill to the opening and workpiece material.",
     image: "/assets/tube-pipe-brushes.jpg",
     alt: "Industrial pipe and tube cleaning brushes with twisted-wire stems and cylindrical brush heads",
-    note: "Product family view; final head, reach, fill and attachment are reviewed against the part.",
+    note: "Brush concept · head, reach, fill and attachment are selected for the part.",
     options: ["Tube, pipe or bore cleaning", "Wire or non-metallic fill review", "Reach and tool connection"],
     link: "/products/tube-and-pipe-brushes",
     cta: "Explore pipe & tube brushes",
@@ -89,7 +89,7 @@ const families = [
       "For broad, controlled contact across a face or defined surface area. Select brush profile, fill and mounting around the machine, surface condition and target finish.",
     image: "/assets/disc-face-brushes.jpg",
     alt: "Industrial disc and face brushes in wire and abrasive filament formats with metal hubs",
-    note: "Product family view; final geometry, fill and interface require application review.",
+    note: "Brush concept · geometry, fill and interface are matched to the process.",
     options: ["Face-contact and disc formats", "Wire or abrasive filament", "Hub and machine fit review"],
     link: "/products/disc-and-face-brushes",
     cta: "Explore disc & face brushes",
@@ -100,7 +100,7 @@ const families = [
       "Continuous or linear brush formats for guided contact across a working width. Share the installation envelope, backing or core, fill and process speed.",
     image: "/assets/roller-strip-brush-concept.jpg",
     alt: "Illustrative concept showing roller and metal-backed strip brush formats",
-    note: "Illustrative product direction; dimensions and construction are confirmed against the installation.",
+    note: "Brush concept · dimensions and construction follow the installation brief.",
     options: ["Roller or strip format", "Core, backing and working width", "Fill pattern and mounting"],
     link: "/products/roller-and-strip-brushes",
     cta: "Explore roller & strip",
@@ -197,7 +197,7 @@ export default function ProductsPage() {
                 sizes="(max-width: 900px) 100vw, 1100px"
                 unoptimized
               />
-              <figcaption>Illustrative process visualization—not a photograph of Ferrabrio’s facility or a verified production run. Actual manufacturing and inspection steps depend on the confirmed brush specification.</figcaption>
+              <figcaption>Process concept · actual manufacturing and inspection steps follow the approved brush specification.</figcaption>
             </figure>
             <ol className="brush-build-steps">
               <li><span>01</span><div><h3>Review drawing or sample</h3><p>Confirm workpiece, access path, machine interface and the surface result required.</p></div></li>
@@ -234,7 +234,7 @@ export default function ProductsPage() {
         </section>
       </main>
 
-      <footer className="footer"><div className="wrap footer-bottom">© 2026 FERRABRIO · Product images are representative or illustrative as captioned; final specifications require application review.</div></footer>
+      <footer className="footer"><div className="wrap footer-bottom">© 2026 FERRABRIO · Brush geometry, fill and fitment are finalized for the application.</div></footer>
     </div>
   );
 }
