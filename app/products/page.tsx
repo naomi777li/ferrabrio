@@ -32,8 +32,8 @@ const families = [
     name: "Cup brushes",
     description:
       "A practical format for broader face contact on welds, castings and prepared surfaces. Start with machine interface, work area and the finish required.",
-    image: "/assets/cup-brush-nylon.jpg",
-    alt: "Abrasive nylon cup brush, representative product image",
+    image: "/assets/wire-cup-brush-concept.jpg",
+    alt: "Steel wire cup brush with twisted wire fill, shown as a product direction",
     note: "Brush concept · fill and profile are selected for the contact area.",
     options: ["Wire or nylon fill", "Cup or bevel profile", "Machine interface review"],
     link: "/products/custom-cup-brushes",
